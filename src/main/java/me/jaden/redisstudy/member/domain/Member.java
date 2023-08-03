@@ -21,7 +21,8 @@ public class Member {
     private String email;
 
     @Builder
-    public Member(String name, int age, String email) {
+    public Member(Long id, String name, int age, String email) {
+        this.id = null;
         this.name = name;
         this.age = age;
         this.email = email;

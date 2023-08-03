@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import me.jaden.redisstudy.member.domain.Member;
 
+import java.util.Objects;
+
 @Getter
 @NoArgsConstructor
 public class MemberView {
@@ -26,5 +28,18 @@ public class MemberView {
                 .age(member.getAge())
                 .email(member.getEmail())
                 .build();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MemberView that = (MemberView) o;
+        return age == that.age && Objects.equals(name, that.name) && Objects.equals(email, that.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, email);
     }
 }
