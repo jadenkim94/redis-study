@@ -34,7 +34,7 @@ public class CacheTest {
 
     @AfterEach
     void removeCache() {
-        Cache cache = cacheManager.getCache("MemberInfo");
+        Cache cache = cacheManager.getCache("memberView");
         if (cache != null) {
             cache.evict(MEMBER_ID);
         }

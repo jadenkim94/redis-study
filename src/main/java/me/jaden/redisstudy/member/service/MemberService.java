@@ -23,7 +23,7 @@ public class MemberService {
     }
 
     @Transactional(readOnly = true)
-    @Cacheable(value = "MemberInfo", key = "#memberId")
+    @Cacheable(value = "memberView", key = "#memberId")
     public MemberView findById(Long memberId) {
         Member member = findMember(memberId);
         return MemberView.convertFromMember(member);
