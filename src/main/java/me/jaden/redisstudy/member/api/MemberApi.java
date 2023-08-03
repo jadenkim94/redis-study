@@ -1,9 +1,8 @@
 package me.jaden.redisstudy.member.api;
 
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import me.jaden.redisstudy.member.api.request.MemberJoin;
-import me.jaden.redisstudy.member.api.response.MemberInfo;
+import me.jaden.redisstudy.member.api.response.MemberView;
 import me.jaden.redisstudy.member.service.MemberService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,9 +27,8 @@ public class MemberApi {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MemberInfo> getMember(@PathVariable("id") Long memberId) {
-        MemberInfo memberInfo = memberService.findById(memberId);
-        return ResponseEntity.ok(memberInfo);
+    public ResponseEntity<MemberView> getMember(@PathVariable("id") Long memberId) {
+        MemberView memberView = memberService.findById(memberId);
+        return ResponseEntity.ok(memberView);
     }
-
 }
